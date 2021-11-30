@@ -1,0 +1,57 @@
+import unittest
+from network import neural_net
+
+
+def process_training_files():
+    labels_file = open("./data/train-labels-idx1-ubyte", "rb")
+    labels_file.seek(8)
+    images_file = open("./data/train-images-idx3-ubyte", "rb")
+    images_file.seek(16)
+    labels = []
+    images = []
+    for i in range(60000):
+        label = int.from_bytes(labels_file.read(1), byteorder="big")
+        labels.append(label)
+
+        img = images_file.read(784)
+        images.append([b/255 for b in img])
+    labels_file.close()
+    images_file.close()
+    return images, labels
+
+def process_test_files():
+    labels_file = open("./data/t10k-labels-idx1-ubyte", "rb")
+    labels_file.seek(8)
+    images_file = open("./data/t10k-images-idx3-ubyte", "rb")
+    images_file.seek(16)
+    labels = []
+    images = []
+    for i in range(10000):
+        label = int.from_bytes(labels_file.read(1), byteorder="big")
+        labels.append(label)
+
+        img = images_file.read(784)
+        images.append([b/255 for b in img])
+    labels_file.close()
+    images_file.close()
+    return images, labels
+
+
+class TestMNIST(unittest.TestCase):
+
+    def test(self):
+        training_images, training_labels = process_training_files()
+        test_images, test_labels = process_test_files()
+        net = neural_net.Net([764, 16, 16, 10])
+        net.train_stochastic(10, 30, 4, training_images, training_labels)
+        accuracy = net.test(test_images, test_labels)
+        self.assertGreaterEqual(accuracy, 0.9) 
+        
+        
+        
+        
+        
+        
+        
+        
+ 
