@@ -1,5 +1,5 @@
 # Neural Network
-A barebones implementation of a rudimentary artifical neural network. This was inspired by the 3Blue1Brown [YouTube series on neural networks](https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi). The stochastic training idea came from Nielsen's [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com). Currently, a test has been setup training the network on the MNIST handwritten digit database.
+A barebones implementation of a rudimentary artifical neural network. This was inspired by the 3Blue1Brown [YouTube series on neural networks](https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi). The stochastic training idea came from Nielsen's [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com). The MNIST handwritten digit database is also provided along with weights trained on the data.
 
 ## How it works
 The implementation only relies on NumPy for vector and matrix calculations; the core logic is built-up from scratch. This invariably means that all computations are done by the CPU.
