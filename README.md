@@ -23,6 +23,20 @@ The other partial derivatives are computed similarly.
 
 ## Testing on Digit Recognition
 
+Adopting the network layer structure from the aforementioned 3Blue1Brown video series, with two hidden layers of 16 perceptrons each, resulted in an accuracy of 91.57%. The weights that achieve this result are stored in the [weights](weights/) folder.
+
+## For users
+If you wish to tinker with the model, refer to the [Jupyter Notebook](digit_recognition.ipynb) as a guide.
+
+For testing, first save your weights and biases using ```numpy.save``` in the [weights](weights/weights.npy) and [biases](weights/biases.npy) file, respectively. Then test with 
+```python
+python -m unittest
+```
+from the base directory.
+
+
+
+
 
 
 
