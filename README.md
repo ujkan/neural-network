@@ -12,7 +12,11 @@ The network has three components:
 Activations are computed as follows: 
 $$a^{(i+1)} = \sigma(w^{(i)}a^{(i)} + b^{(i)})$$
 
-I have sacrificed elaborate code for a cleaner-looking and more mathematical approach. For example, the partial derivatives of the cost function $$C(a^{(L)}_0,\ldots,a^{(L)}_k) = \sum_{i = 0}^{k}(y_k - a^{(L)}_k)$$ (where $a^{(L)}$ is the activation in the last layer) with respect to the weights matrix $w^{(i)}$—which represents the weights between the $i$-th and $(i+1)$-th layers—is implemented as:
+I have sacrificed elaborate code for a cleaner-looking and more mathematical approach. For example, the partial derivatives of the cost function 
+```math
+C(a^{(L)}_0,\ldots,a^{(L)}_k) = \sum_{i = 0}^{k}(y_k - a^{(L)}_k) 
+```
+(where $a^{(L)}$ is the activation in the last layer) with respect to the weights matrix $w^{(i)}$—which represents the weights between the $i$-th and $(i+1)$-th layers—is implemented as:
 ```python
 dc_dw[i] = np.dot(dc_db[i], self.activations[i].transpose())
 ```
